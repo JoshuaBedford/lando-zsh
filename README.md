@@ -1,4 +1,4 @@
-# lando-zsh
+# Lando ZSH (lando-zsh)
 *A simple collection of alias functions to enable the use of the CLIs within Lando without having to type `lando` to access them.*
 
 > Note: Not fully tested. I use this personally and decided to share. Use at your own risk and feel free to PR any suggestions.
