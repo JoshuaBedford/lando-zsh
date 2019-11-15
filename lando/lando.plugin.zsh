@@ -9,12 +9,12 @@
 
 SITES_DIRECTORY="/Users/jbedford/Sites"
 
+CONFIG_FILE=./.lando.yml
+
 # Enable wp command with lando.
 function wp(){
-
-	FILE=./.lando.yml
 	
-	if checkForFile $FILE $SITES_DIRECTORY ; then
+	if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
 		# Run Lando wp
 		lando wp "$@"
 	else
@@ -25,10 +25,8 @@ function wp(){
 
 # Enable composer command.
 function composer(){
-
-	FILE=./.lando.yml
 	
-	if checkForFile $FILE $SITES_DIRECTORY ; then
+	if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
 		# Run Lando composer
 		echo "Using 'lando composer'"
 		lando composer "$@"
@@ -40,10 +38,8 @@ function composer(){
 
 # Enable artisan command.
 function artisan(){
-
-	FILE=./.lando.yml
 	
-	if checkForFile $FILE $SITES_DIRECTORY ; then
+	if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
 		# Run Lando artisan
 		lando artisan "$@"
 	else
@@ -54,10 +50,8 @@ function artisan(){
 
 # Enable npm command for lando if lando file exists in directory.
 function npm(){
-
-	FILE=.lando.yml
 	
-	if checkForFile $FILE $SITES_DIRECTORY ; then
+	if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
 		echo "Running Lando npm...";
 		# Run Lando NPM
 		lando npm "$@"
@@ -70,10 +64,8 @@ function npm(){
 
 # Enable gulp command.
 function gulp(){
-
-	FILE=.lando.yml
 	
-	if checkForFile $FILE $SITES_DIRECTORY ; then
+	if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
 		echo "Running Lando gulp...";
 		# Run Lando gulp
 		lando gulp "$@"
