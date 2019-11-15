@@ -10,3 +10,6 @@ The functions *should* enable the ability to not have to type `lando` before a c
 
 #### WARNING: 
 This could conflict with any aliases previously installed. If you have any of the CLIs installed globally (outside of lando). The `if` statements *should* account for this by calling the non-lando command for you, but not all have been tested fully.
+
+## USE
+Clone the `lando` folder into your `custom/plugins` folder. Also, update the `SITES_DIRECTORY` variable with the directory your sites/projects are found in, and the `CONFIG_FILE` variable if your config file is a different name.
