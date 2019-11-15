@@ -5,13 +5,16 @@
 #
 # WARNING: This could conflict with any aliases previously installed. If you have any of the CLIs installed globally (outside of lando)
 # 		 : The functions *should* enable the ability to not have to type 'lando' before a command by prepending lando for all commands done in the same directory as a .lando.yml file.
-#
+
+
+SITES_DIRECTORY="/Users/jbedford/Sites"
 
 # Enable wp command with lando.
 function wp(){
 
 	FILE=./.lando.yml
-	if [ -f "$FILE" ]; then
+	
+	if checkForFile $FILE $SITES_DIRECTORY ; then
 		# Run Lando wp
 		lando wp "$@"
 	else
@@ -24,7 +27,8 @@ function wp(){
 function composer(){
 
 	FILE=./.lando.yml
-	if [ -f "$FILE" ]; then
+	
+	if checkForFile $FILE $SITES_DIRECTORY ; then
 		# Run Lando composer
 		echo "Using 'lando composer'"
 		lando composer "$@"
@@ -38,7 +42,8 @@ function composer(){
 function artisan(){
 
 	FILE=./.lando.yml
-	if [ -f "$FILE" ]; then
+	
+	if checkForFile $FILE $SITES_DIRECTORY ; then
 		# Run Lando artisan
 		lando artisan "$@"
 	else
@@ -50,11 +55,14 @@ function artisan(){
 # Enable npm command for lando if lando file exists in directory.
 function npm(){
 
-	FILE=./.lando.yml
-	if [ -f "$FILE" ]; then
+	FILE=.lando.yml
+	
+	if checkForFile $FILE $SITES_DIRECTORY ; then
+		echo "Running Lando npm...";
 		# Run Lando NPM
 		lando npm "$@"
 	else
+		echo "Running System npm...";
 		# Run System NPM
 		command npm "$@"
 	fi
@@ -63,12 +71,68 @@ function npm(){
 # Enable gulp command.
 function gulp(){
 
-	FILE=./.lando.yml
-	if [ -f "$FILE" ]; then
+	FILE=.lando.yml
+	
+	if checkForFile $FILE $SITES_DIRECTORY ; then
+		echo "Running Lando gulp...";
 		# Run Lando gulp
 		lando gulp "$@"
 	else
+		echo "Running System gulp...";
 		# Run System gulp
 		command gulp "$@"
 	fi
+}
+
+
+# Check for the file in the current and parent directories.
+# $1: The file to search for (string)
+# $2: The directory to search up to.
+function checkForFile(){
+	
+	currentDirectory="$PWD"
+
+	# Bash is backwards. 0 is true 1 (non-zero) is false.
+	flag="1"
+
+	# Only bother checking for lando within the Sites directory.
+	if [[ ":$PWD:" == *":$2"* ]]; then
+
+		echo "Checking for file: $1 within $2..."
+
+		while true; do
+			if [ $currentDirectory != "$2" ]; then
+					if [ -f "$currentDirectory/$1" ]; then
+						return "0"
+					fi
+				currentDirectory="$(dirname $currentDirectory)"
+			else
+				break;
+			fi
+		done
+
+		if [[ "$flag" == "1" ]]; then
+			echo "Could not find $1 in the current directory or in any of its parents up to $2."
+		fi
+
+	else
+
+		echo "Checking for file: $1"
+
+		if [ -f "$1" ]; then
+			echo "Found it"
+			return 0
+		else
+			echo "Not Found"
+			return "1"
+		fi
+
+		if [[ "$flag" == "1" ]]; then
+			echo "Could not find $1."
+		fi
+
+	fi
+
+	return $flag
+
 }
