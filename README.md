@@ -14,5 +14,8 @@ This could conflict with any aliases previously installed. If you have any of th
 
 ## USE
 - Clone this project into your `custom/plugins` folder:
-	- `git clone git@github.com:JoshuaBedford/lando-zsh.git`
-- Update the `SITES_DIRECTORY` variable with the directory your sites/projects are found in, and the `CONFIG_FILE` variable if your config file is a different name.
+	- `cd ~/.oh-my-zsh/custom/plugins`
+	- via SSH: 		`git clone git@github.com:JoshuaBedford/lando-zsh.git lando`
+	- via HTTPS: 	`git clone https://github.com/JoshuaBedford/lando-zsh.git lando`
+- Update the `SITES_DIRECTORY` variable with the directory your sites/projects are found in.
+- Update the `CONFIG_FILE` variable if your config file is a different name.
