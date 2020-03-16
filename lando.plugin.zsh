@@ -1,4 +1,7 @@
 #!zsh
+#
+# Author: Joshua Bedford
+# URL: github.com/joshuabedford/lando-zsh
 
 #
 # A simple collection of alias functions to enable the use of CLIs within Lando without having to type 'lando'.
