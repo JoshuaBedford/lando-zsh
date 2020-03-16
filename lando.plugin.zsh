@@ -10,7 +10,7 @@
 # 		 : The functions *should* enable the ability to not have to type 'lando' before a command by prepending lando for all commands done in the same directory as a .lando.yml file.
 
 
-SITES_DIRECTORY="/Users/jbedford/Sites"
+SITES_DIRECTORY="$HOME/Sites"
 
 CONFIG_FILE=./.lando.yml
 
