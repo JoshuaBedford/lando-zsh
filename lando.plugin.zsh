@@ -51,6 +51,20 @@ function artisan(){
   fi
 }
 
+# Enable yarn command for lando if lando file exists in directory.
+function yarn(){
+  
+  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+    echo "Running Lando yarn...";
+    # Run Lando yarn
+    lando yarn "$@"
+  else
+    echo "Running System yarn...";
+    # Run System yarn
+    command yarn "$@"
+  fi
+}
+
 # Enable npm command for lando if lando file exists in directory.
 function npm(){
   
