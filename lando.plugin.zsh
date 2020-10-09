@@ -1,15 +1,3 @@
-#!zsh
-#
-# Author: Joshua Bedford
-# URL: github.com/joshuabedford/lando-zsh
-
-#
-# A simple collection of alias functions to enable the use of CLIs within Lando without having to type 'lando'.
-#
-# WARNING: This could conflict with any aliases previously installed. If you have any of the CLIs installed globally (outside of lando)
-#      : The functions *should* enable the ability to not have to type 'lando' before a command by prepending lando for all commands done in the same directory as a .lando.yml file.
-
-
 LANDO_ZSH_SITES_DIRECTORY="$HOME/Sites"
 
 LANDO_ZSH_CONFIG_FILE=./.lando.yml
