@@ -24,17 +24,16 @@ checkForFile(){
   local current_directory="$PWD"
 
   # Bash is backwards. 0 is true 1 (non-zero) is false.
-  flag="1"
-
   # Only bother checking for lando within the Sites directory.
-  if [[ ":$PWD:" == *":$LANDO_ZSH_SITES_DIRECTORY"* ]]; then
+  if [[ "$PWD" == "$LANDO_ZSH_SITES_DIRECTORY"* ]]; then
 
-    echo "Checking for file: $LANDO_ZSH_CONFIG_FILE within $LANDO_ZSH_SITES_DIRECTORY..."
+    # "Checking for file: $LANDO_ZSH_CONFIG_FILE within $LANDO_ZSH_SITES_DIRECTORY..."
 
     while true; do
       if [ $current_directory != "$LANDO_ZSH_SITES_DIRECTORY" ]; then
           if [ -f "$current_directory/$LANDO_ZSH_CONFIG_FILE" ]; then
-            return "0"
+            echo "Using Lando"
+            return
           fi
         current_directory="$(dirname $current_directory)"
       else
@@ -42,28 +41,14 @@ checkForFile(){
       fi
     done
 
-    if [[ "$flag" == "1" ]]; then
-      echo "Could not find $LANDO_ZSH_CONFIG_FILE in the current directory or in any of its parents up to $LANDO_ZSH_SITES_DIRECTORY."
-    fi
+    # File not found in loop above
+    # "Could not find $LANDO_ZSH_CONFIG_FILE in the current directory or in any of its parents up to $LANDO_ZSH_SITES_DIRECTORY."
+    return 1;
 
   else
 
-    echo "Checking for file: $LANDO_ZSH_CONFIG_FILE"
-
-    if [ -f "$LANDO_ZSH_CONFIG_FILE" ]; then
-      echo "Found it"
-      return 0
-    else
-      echo "Not Found"
-      return "1"
-    fi
-
-    if [[ "$flag" == "1" ]]; then
-      echo "Could not find $LANDO_ZSH_CONFIG_FILE."
-    fi
+    # Not within $LANDO_ZSH_SITES_DIRECTORY
+    return 1;
 
   fi
-
-  return $flag
-
 }
