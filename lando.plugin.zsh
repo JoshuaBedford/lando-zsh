@@ -10,14 +10,14 @@
 #      : The functions *should* enable the ability to not have to type 'lando' before a command by prepending lando for all commands done in the same directory as a .lando.yml file.
 
 
-SITES_DIRECTORY="$HOME/Sites"
+LANDO_ZSH_SITES_DIRECTORY="$HOME/Sites"
 
-CONFIG_FILE=./.lando.yml
+LANDO_ZSH_CONFIG_FILE=./.lando.yml
 
 # Enable wp command with lando.
 function wp(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     # Run Lando wp
     lando wp "$@"
   else
@@ -29,7 +29,7 @@ function wp(){
 # Enable composer command.
 function composer(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     # Run Lando composer
     echo "Using 'lando composer'"
     lando composer "$@"
@@ -42,7 +42,7 @@ function composer(){
 # Enable artisan command.
 function artisan(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     # Run Lando artisan
     lando artisan "$@"
   else
@@ -54,7 +54,7 @@ function artisan(){
 # Enable yarn command for lando if lando file exists in directory.
 function yarn(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     echo "Running Lando yarn...";
     # Run Lando yarn
     lando yarn "$@"
@@ -68,7 +68,7 @@ function yarn(){
 # Enable npm command for lando if lando file exists in directory.
 function npm(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     echo "Running Lando npm...";
     # Run Lando NPM
     lando npm "$@"
@@ -82,7 +82,7 @@ function npm(){
 # Enable gulp command.
 function gulp(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     echo "Running Lando gulp...";
     # Run Lando gulp
     lando gulp "$@"
@@ -96,7 +96,7 @@ function gulp(){
 # Enable drush command.
 function drush(){
 
-  if checkForFile $CONFIG_FILE $SITES_DIRECTORY ; then
+  if checkForFile $LANDO_ZSH_CONFIG_FILE $LANDO_ZSH_SITES_DIRECTORY ; then
     echo "Running Lando drush...";
     # Run Lando drush
     lando drush "$@"
