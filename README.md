@@ -24,3 +24,7 @@ This plugin removes the requirement to type `lando` before a command. It prepend
 #### Settings: 
 - `LANDO_ZSH_SITES_DIREECTORY`: The plugin will stop searching through parents for `CONFIG_FILE` once it hits this directory.
 - `LANDO_ZSH_CONFIG_FILE`: The plugin will check to see if this provided file exists to check for presence of Lando.
+
+##### Author:
+- Author: Joshua Bedford
+- URL: github.com/joshuabedford/lando-zsh
