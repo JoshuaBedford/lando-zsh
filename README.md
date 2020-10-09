@@ -1,6 +1,6 @@
 
 # Lando ZSH (lando-zsh)
-*A simple collection of alias functions to enable the use of the CLIs within Lando without having to type `lando` to access them.*
+*A simple collection of alias functions to enable the use of the CLIs within Lando without having to type `lando` to access them. Built for use with `oh-my-zsh`*
 
 #### PURPOSE:
 To enable the use of common commands in web development without having to prepend `lando` to them. E.G. `lando composer` becomes simply `composer` and `lando npm` becomes `npm`.
