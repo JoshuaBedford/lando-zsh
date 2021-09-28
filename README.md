@@ -31,6 +31,14 @@ This plugin removes the requirement to type `lando` before a command. It utilize
 - `LANDO_ZSH_SITES_DIRECTORY`: The plugin will stop searching through parents for `CONFIG_FILE` once it hits this directory.
 - `LANDO_ZSH_CONFIG_FILE`: The plugin will check to see if this provided file exists to check for presence of Lando.
 
+**NOTE:** If your sites directory is different from `/home/<your_user_name>/Sites`, you will need to update `lando.plugin.zsh` to the correct directory path.
+
+Example:
+`: ${LANDO_ZSH_SITES_DIRECTORY:="/media/<device_name>/Sites"}`
+
+Or an even longer path, example:
+`: ${LANDO_ZSH_SITES_DIRECTORY:="/media/HD1/projects/privates/websites"}`
+
 ## Author:
 
 - Author: Joshua Bedford
