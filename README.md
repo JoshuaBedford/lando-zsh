@@ -37,3 +37,5 @@ The plugin will utilize the default values. Set the variable(s) below as needed 
 
 - Author: Joshua Bedford
 - URL: [https://github.com/joshuabedford/lando-zsh](https://github.com/joshuabedford/lando-zsh)
+
+Credit: A major thank you deserved to [Marc Cornellà](https://github.com/mcornella) for making this plugin far more efficient.
