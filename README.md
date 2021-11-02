@@ -28,8 +28,10 @@ This plugin removes the requirement to type `lando` before a command. It utilize
 
 ## Settings:
 
-- `LANDO_ZSH_SITES_DIRECTORY`: The plugin will stop searching through parents for `CONFIG_FILE` once it hits this directory.
-- `LANDO_ZSH_CONFIG_FILE`: The plugin will check to see if this provided file exists to check for presence of Lando.
+The plugin will utilize the default values. Set the variable(s) below as needed in your `.zshrc` file to change these default values to match your development environment. (E.G. Add `LANDO_ZSH_SITES_DIRECTORY=~/Projects` to `.zshrc`)
+
+- `LANDO_ZSH_SITES_DIRECTORY`: The plugin will stop searching through parents for `LANDO_ZSH_CONFIG_FILE` once it hits this directory. This should be the top level directory that holds all of your projects.
+- `LANDO_ZSH_CONFIG_FILE`: The plugin will check to see if this provided file exists to check for presence of Lando. By default, the lando config file is named `.lando.yml` but this can be changed if needed or desired.
 
 ## Author:
 
