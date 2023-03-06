@@ -1,3 +1,6 @@
+> # NO LONGER ACTIVELY SUPPORTED.
+> Feel free to submit a PR and I can review it as I have time, but I no longer use Lando full time and do not plan to actively support this tool.
+
 # Lando ZSH (lando-zsh)
 
 This plugin adds aliases for using various languages and frameworks with [Lando](https://docs.lando.dev/basics/) for Docker. It will only run within lando-driven project directories.
